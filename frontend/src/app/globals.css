@@ -24,4 +24,9 @@ body {
     .container {
         @apply mx-auto lg:max-w-7xl px-5 lg:px-0;
     }
+
+    .text-gradient {
+        @apply bg-gradient-to-r from-white to-zinc-400;
+        @apply bg-clip-text text-transparent;
+    }
 }
