@@ -1,7 +1,7 @@
 import Image from 'next/image';
-import { ServiceCardProps } from '../interface';
+import { ServiceCardProps } from '../interface/index';
 
-export function ItemServiceCard(props: ServiceCardProps) {
+export function ServiceCard(props: ServiceCardProps) {
     return (
         <div className="flex rounded-xl bg-zinc-800 overflow-hidden">
             <Image

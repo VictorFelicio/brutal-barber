@@ -1,22 +1,35 @@
 import Image from 'next/image';
-import { ServiceCardProps } from '../interface';
+import { IconBrandInstagram, IconBrandX, IconBrandYoutube } from '@tabler/icons-react';
+import { ProfessionalCardProps } from '../interface';
+import { Stars } from '@/components/shared/Stars';
 
-export function ServiceCard(props: ServiceCardProps) {
+export function ProfessionalCard(props: ProfessionalCardProps) {
     return (
-        <div className="flex rounded-xl bg-zinc-800 overflow-hidden">
-            <Image
-                src={props.service.imageURL}
-                alt={props.service.name}
-                className="object-cover"
-                width={150}
-                height={150}
-            />
-            <div className="flex flex-col p-5 gap-2">
-                <span className="text-xl font-black">{props.service.name}</span>
-                <span className="text-xs text-zinc-400 flex-1">
-                    {props.service.description}
+        <div className="flex flex-col rounded-xl bg-zinc-800 overflow-hidden">
+            <div className="relative h-72 w-full">
+                <Image
+                    src={props.professional.imageURL}
+                    alt={props.professional.name}
+                    fill
+                    className="object-cover object-top"
+                />
+            </div>
+            <div className="flex flex-col p-4 gap-5">
+                <span className="text-2xl font-black">{props.professional.name}</span>
+                <span className="text-sm text-zinc-400 flex-1">
+                    {props.professional.description}
                 </span>
-                <span>R${props.service.price.toFixed(2)}</span>
+
+                <Stars
+                    rating={props.professional.stars}
+                    qtyComments={props.professional.qtyReviews}
+                />
+
+                <div className="flex gap-3 text-zinc-300">
+                    <IconBrandYoutube stroke={1} />
+                    <IconBrandInstagram stroke={1} />
+                    <IconBrandX stroke={1} />
+                </div>
             </div>
         </div>
     );

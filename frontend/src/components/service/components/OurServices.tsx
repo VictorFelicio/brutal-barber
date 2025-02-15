@@ -1,5 +1,5 @@
-import { ServiceCard } from '@/components/professional/components/ProfessionalCard';
 import { services } from '@/data/constants/services';
+import { ServiceCard } from './ServiceCard';
 
 export function OurServices() {
     return (
