@@ -1,7 +1,7 @@
 import { Service } from '@/core/service/interface/Service';
 
-interface ItemServiceCardProps {
+interface ServiceCardProps {
     service: Service;
 }
 
-export type { ItemServiceCardProps };
+export type { ServiceCardProps };
