@@ -15,7 +15,9 @@ export function ProfessionalCard(props: ProfessionalCardProps) {
                 />
             </div>
             <div className="flex flex-col p-4 gap-5">
-                <span className="text-2xl font-black">{props.professional.name}</span>
+                <span className="text-2xl font-black text-zinc-300 text-gradient">
+                    {props.professional.name}
+                </span>
                 <span className="text-sm text-zinc-400 flex-1">
                     {props.professional.description}
                 </span>

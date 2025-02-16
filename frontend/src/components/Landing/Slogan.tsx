@@ -15,14 +15,14 @@ export function Slogan() {
                 <Navbar />
                 <div className="flex flex-col items-center flex-1 justify-center gap-5">
                     <h1 className="flex flex-col items-center">
-                        <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-thin tracking-wider">
+                        <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-thin tracking-wider text-zinc-300">
                             Transformações
                         </span>
                         <span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-gradient">
                             Lendárias
                         </span>
                     </h1>
-                    <p className="text-zinc300 text-base  sm:text-lg font-extralight ">
+                    <p className="text-zinc-300 text-base  sm:text-lg font-extralight ">
                         🤘 Seu estilo é nosso estilo! 🤘
                     </p>
                     <Link

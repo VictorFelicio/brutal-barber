@@ -8,7 +8,12 @@ export function Navbar() {
                 <Logo />
 
                 <div>
-                    <Link href="/entrar">Entrar</Link>
+                    <Link
+                        href="/entrar"
+                        className="text-zinc-300"
+                    >
+                        Entrar
+                    </Link>
                 </div>
             </nav>
         </header>

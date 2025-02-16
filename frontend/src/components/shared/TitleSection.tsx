@@ -8,7 +8,7 @@ export function TitleSection(props: TitleSectionProps) {
     return (
         <div className="flex flex-col items-center">
             {props.tag && (
-                <div className="bg-zinc-700 px-4 py-1.5 rounded-md font-black mb-2 text-sm md:text-base">
+                <div className="bg-zinc-700 px-4 py-1.5 rounded-md font-black mb-2 text-sm md:text-base text-zinc-300">
                     {props.tag}
                 </div>
             )}

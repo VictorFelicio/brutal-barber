@@ -12,11 +12,13 @@ export function ServiceCard(props: ServiceCardProps) {
                 height={150}
             />
             <div className="flex flex-col p-5 gap-2">
-                <span className="text-xl font-black">{props.service.name}</span>
+                <span className="text-xl font-black text-zinc-300">
+                    {props.service.name}
+                </span>
                 <span className="text-xs text-zinc-400 flex-1">
                     {props.service.description}
                 </span>
-                <span>R${props.service.price.toFixed(2)}</span>
+                <span className="text-zinc-300">R${props.service.price.toFixed(2)}</span>
             </div>
         </div>
     );
