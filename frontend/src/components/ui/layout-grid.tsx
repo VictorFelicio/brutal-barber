@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
+import { JSX } from 'react/jsx-runtime';
 
 type Card = {
     id: number;
