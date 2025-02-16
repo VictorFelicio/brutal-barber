@@ -9,6 +9,7 @@ export default function Landing() {
     return (
         <div className="flex flex-col">
             <Slogan />
+
             <SectionBackground image="/banners/servicos.webp">
                 <OurServices />
             </SectionBackground>
@@ -20,6 +21,7 @@ export default function Landing() {
             <SectionBackground image="/banners/clientes.webp">
                 <OurClients />
             </SectionBackground>
+
             <Footer />
         </div>
     );
