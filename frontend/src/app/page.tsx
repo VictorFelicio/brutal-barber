@@ -1,3 +1,4 @@
+import { Slogan } from '@/components/Landing/Slogan';
 import { OurProfessional } from '@/components/Professional/components/OurProfessional';
 import { OurServices } from '@/components/Service/components/OurServices';
 import { Footer } from '@/components/shared/Footer';
@@ -7,10 +8,7 @@ import { SectionBackground } from '@/components/shared/SectionBackground';
 export default function Landing() {
     return (
         <div className="flex flex-col">
-            <Navbar />
-            <div className="container py-10">
-                <h1 className="text-6xl">Landing Teste</h1>
-            </div>
+            <Slogan />
             <SectionBackground image="/banners/servicos.webp">
                 <OurServices />
             </SectionBackground>
