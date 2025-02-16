@@ -4,7 +4,7 @@ import { TitleSection } from '@/components/shared/TitleSection';
 
 export function OurServices() {
     return (
-        <div className="flex flex-col gap-16">
+        <div className="flex flex-col gap-y-16">
             <TitleSection
                 tag="Serviços"
                 main="Do Clássico ao Rock"
