@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer components {
+    .container {
+        @apply mx-auto lg:max-w-7xl px-5 lg:px-0;
+    }
+
+    .text-gradient {
+        @apply bg-gradient-to-r from-white to-zinc-400;
+        @apply bg-clip-text text-transparent;
+    }
+}
+
+@layer base {
+    :root {
+        --background: 240 10% 3.9%;
+        --foreground: 0 0% 98%;
+        --card: 240 10% 3.9%;
+        --card-foreground: 0 0% 98%;
+        --popover: 240 10% 3.9%;
+        --popover-foreground: 0 0% 98%;
+        --primary: 0 0% 98%;
+        --primary-foreground: 240 5.9% 10%;
+        --secondary: 240 3.7% 15.9%;
+        --secondary-foreground: 0 0% 98%;
+        --muted: 240 3.7% 15.9%;
+        --muted-foreground: 240 5% 64.9%;
+        --accent: 240 3.7% 15.9%;
+        --accent-foreground: 0 0% 98%;
+        --destructive: 0 62.8% 30.6%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 240 3.7% 15.9%;
+        --input: 240 3.7% 15.9%;
+        --ring: 240 4.9% 83.9%;
+        --chart-1: 220 70% 50%;
+        --chart-2: 160 60% 45%;
+        --chart-3: 30 80% 55%;
+        --chart-4: 280 65% 60%;
+        --chart-5: 340 75% 55%;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-background text-foreground;
+    }
+}
+
+@layer components {
+    .container {
+        @apply mx-auto xl:max-w-7xl lg:max-w-7xl px-5;
+    }
+
+    .text-gradient {
+        @apply bg-gradient-to-r from-white to-zinc-400;
+        @apply bg-clip-text text-transparent;
+    }
+
+    .button {
+        @apply px-4 py-2 rounded text-white bg-zinc-700;
+    }
+
+    .button-outline {
+        @apply border border-zinc-500 px-4 py-2 rounded text-white;
+    }
+
+    .input {
+        @apply bg-zinc-800 px-4 py-2 rounded;
+    }
+}

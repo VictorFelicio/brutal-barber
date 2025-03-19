@@ -1,0 +1,17 @@
+{
+    "name": "@brutalbarber/core",
+    "version": "1.0.1",
+    "description": "",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "scripts": {
+        "dev": "tsup src/index.ts --dts --watch",
+        "build": "tsup src/index.ts --dts --minify"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "tsup": "^8.4.0"
+    }
+}
