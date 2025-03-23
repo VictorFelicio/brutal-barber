@@ -1,5 +1,7 @@
 import { ChangeEvent, useState } from 'react';
 import useAPI from './useAPI';
+import { useSession } from './useSession';
+import { useRouter } from 'next/router';
 
 export function useFormAuth() {
     const [mode, setMode] = useState<'login' | 'register'>('login');
@@ -9,6 +11,8 @@ export function useFormAuth() {
     const [phone, setPhone] = useState<string>('');
 
     const { apiHttpPost } = useAPI();
+    const { startSession } = useSession();
+    const router = useRouter();
 
     function toggleMode() {
         setMode(mode === 'login' ? 'register' : 'login');
@@ -22,23 +26,32 @@ export function useFormAuth() {
         setMode('login');
     }
 
+    async function login() {
+        const token = await apiHttpPost('auth/login', { email, password });
+        startSession(token);
+        router.push('/');
+    }
+
+    async function register() {
+        await apiHttpPost('auth/register', {
+            name,
+            email,
+            password,
+            phone,
+        });
+    }
+
     async function submit() {
         if (mode === 'login') {
-            const token = await apiHttpPost('auth/login', { email, password });
-            console.log(token);
-            resetForm();
+            login();
         }
 
         if (mode === 'register') {
-            const token = await apiHttpPost('auth/register', {
-                name,
-                email,
-                password,
-                phone,
-            });
-            resetForm();
-            console.log(token);
+            register();
+            login();
         }
+
+        resetForm();
     }
 
     function handleOnChange(e: ChangeEvent<HTMLInputElement>) {
