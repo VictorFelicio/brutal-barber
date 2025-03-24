@@ -1,6 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unsafe-call */
 import { Body, Controller, Post } from '@nestjs/common';
 import UserPrisma from './user.prisma';
 import { RegisterUser, User, LoginUser } from '@brutalbarber/core';
