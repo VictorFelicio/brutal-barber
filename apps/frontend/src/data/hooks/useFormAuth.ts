@@ -1,7 +1,7 @@
 import { ChangeEvent, useState } from 'react';
 import useAPI from './useAPI';
 import { useSession } from './useSession';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 
 export function useFormAuth() {
     const [mode, setMode] = useState<'login' | 'register'>('login');
