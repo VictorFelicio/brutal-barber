@@ -1,13 +1,13 @@
 'use client';
 import { useSession } from '@/data/hooks/useSession';
+import { IconLogout } from '@tabler/icons-react';
+import Image from 'next/image';
 import {
     DropdownMenu,
     DropdownMenuContent,
     DropdownMenuItem,
     DropdownMenuTrigger,
 } from '../ui/dropdown-menu';
-import Image from 'next/image';
-import { IconLogout } from '@tabler/icons-react';
 
 export default function MenuUser() {
     const { user, closeSession } = useSession();
