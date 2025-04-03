@@ -1,13 +1,15 @@
 'use client';
 import { useSession } from '@/data/hooks/useSession';
-import { IconLogout } from '@tabler/icons-react';
+import { IconCalendar, IconHome, IconLogout } from '@tabler/icons-react';
 import Image from 'next/image';
 import {
     DropdownMenu,
     DropdownMenuContent,
     DropdownMenuItem,
     DropdownMenuTrigger,
+    DropdownMenuSeparator,
 } from '../ui/dropdown-menu';
+import Link from 'next/link';
 
 export default function MenuUser() {
     const { user, closeSession } = useSession();
@@ -30,6 +32,26 @@ export default function MenuUser() {
                 </div>
             </DropdownMenuTrigger>
             <DropdownMenuContent>
+                <DropdownMenuItem>
+                    <Link
+                        href={'/'}
+                        className="flex gap-2"
+                    >
+                        <IconHome size={18} />
+                        <span>Início</span>
+                    </Link>
+                </DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem>
+                    <Link
+                        href={'/scheduling'}
+                        className="flex gap-2"
+                    >
+                        <IconCalendar size={18} />
+                        <span>Agendamento</span>
+                    </Link>
+                </DropdownMenuItem>
+                <DropdownMenuSeparator />
                 <DropdownMenuItem
                     onClick={closeSession}
                     className="flex gap-2 text-red-500"
