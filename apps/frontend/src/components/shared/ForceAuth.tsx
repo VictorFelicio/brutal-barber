@@ -3,6 +3,7 @@
 import { useSession } from '@/data/hooks/useSession';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
+import Processing from './Processing';
 
 export default function ForceAuth(props: any) {
     const { user, isLoading } = useSession();
@@ -14,7 +15,9 @@ export default function ForceAuth(props: any) {
         }
     }, [isLoading, user, router]);
 
-    if (isLoading && !user?.email) return <div>Loading...</div>;
+    if (isLoading) return <Processing />;
+
+    if (!user?.email) return null;
 
     return <div>{props.children}</div>;
 }
