@@ -27,8 +27,8 @@ export class AuthMiddleware implements NestMiddleware {
       if (!user) {
         throw new HttpException('Usuário não encontrado', 401);
       }
-
-      req.user = user
+      delete user.password;
+      (req as any).user = user;
       next();
     } catch (error: unknown) {
       if (error instanceof Error) {

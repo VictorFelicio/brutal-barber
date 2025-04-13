@@ -1,9 +1,11 @@
+import { User } from '@brutalbarber/core';
 import { Controller, Get } from '@nestjs/common';
+import { UserLogged } from 'src/shared/user.decorator';
 
 @Controller('scheduling')
 export class SchedulingController {
   @Get()
-  teste() {
-    return 'ok funcionou';
+  teste(@UserLogged() user: User) {
+    return `Agendamento para ${user.name}`;
   }
 }

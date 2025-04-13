@@ -4,11 +4,12 @@ import { DbModule } from 'src/db/db.module';
 import { BcryptProvider } from './bcrypt.provider';
 import UserRepository from './user.prisma';
 import { AuthMiddleware } from './auth.middleware';
+import UserPrisma from './user.prisma';
 
 @Module({
-  controllers: [AuthController],
   imports: [DbModule],
-  providers: [UserRepository, BcryptProvider, AuthMiddleware],
-  exports: [AuthMiddleware],
+  controllers: [AuthController],
+  providers: [UserRepository, BcryptProvider, AuthMiddleware, UserPrisma],
+  exports: [AuthMiddleware, UserPrisma],
 })
 export class AuthModule {}
