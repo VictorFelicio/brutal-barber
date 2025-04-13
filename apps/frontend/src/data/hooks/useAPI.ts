@@ -1,5 +1,8 @@
+import { useSession } from './useSession';
+
 export default function useAPI() {
     const apiURL = process.env.NEXT_PUBLIC_API_URL;
+    const { token } = useSession();
 
     async function extractData(res: Response) {
         let content = '';
@@ -16,7 +19,11 @@ export default function useAPI() {
 
         const fullPath = `${apiURL}${path}`;
 
-        const response = await fetch(fullPath);
+        const response = await fetch(fullPath, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        });
 
         return extractData(response);
     }
@@ -31,6 +38,7 @@ export default function useAPI() {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`,
             },
             body: JSON.stringify(body),
         });

@@ -26,7 +26,7 @@ export function Slogan() {
                         🤘 Seu estilo é nosso estilo! 🤘
                     </p>
                     <Link
-                        href="/agendamento"
+                        href="/scheduling"
                         className="bg-gradient-to-r from-green-500 to-green-600 text-white font-semibold text-base md:text-lg px-4 py-2 rounded-sm hover:to-green-900"
                     >
                         Agendar Agora
