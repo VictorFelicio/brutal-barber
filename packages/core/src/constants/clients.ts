@@ -1,4 +1,4 @@
-import { Client } from '@brutalbarber/core';
+import { Client } from '../model/client';
 
 export const clients: Client[] = [
     {

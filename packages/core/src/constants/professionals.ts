@@ -1,4 +1,4 @@
-import { Professional } from '@brutalbarber/core';
+import { Professional } from '../model/professional';
 
 export const professionals: Professional[] = [
     {

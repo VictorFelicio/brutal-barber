@@ -1,4 +1,4 @@
-import { Service } from '@brutalbarber/core';
+import { Service } from '../model/service';
 
 export const services: Service[] = [
     {
