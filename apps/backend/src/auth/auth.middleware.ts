@@ -31,6 +31,13 @@ export class AuthMiddleware implements NestMiddleware {
       (req as any).user = user;
       next();
     } catch (error: unknown) {
+      if (
+        error instanceof jwt.JsonWebTokenError ||
+        error instanceof jwt.TokenExpiredError
+      ) {
+        throw new HttpException('Token inválido', 401);
+      }
+
       if (error instanceof Error) {
         throw new HttpException(error.message, 401);
       }
