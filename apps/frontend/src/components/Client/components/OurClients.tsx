@@ -1,7 +1,7 @@
 import { TitleSection } from '@/components/shared/TitleSection';
-import { clients } from '@/data/constants/clients';
 import { ClientCard } from './ClientCard';
 import { LayoutGrid } from '@/components/ui/layout-grid';
+import { clients } from '@brutalbarber/core';
 
 export function OurClients() {
     const classes = ['md:col-span-2', 'col-span-1', 'col-span-1', 'md:col-span-2'];

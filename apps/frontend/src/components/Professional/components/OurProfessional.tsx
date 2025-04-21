@@ -1,4 +1,4 @@
-import { professionals } from '@/data/constants/professionals';
+import { professionals } from '@brutalbarber/core';
 import { ProfessionalCard } from './ProfessionalCard';
 import { TitleSection } from '@/components/shared/TitleSection';
 

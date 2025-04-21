@@ -1,4 +1,4 @@
-import { services } from '@/data/constants/services';
+import { services } from '@brutalbarber/core';
 import { ServiceCard } from './ServiceCard';
 import { TitleSection } from '@/components/shared/TitleSection';
 
