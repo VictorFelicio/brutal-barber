@@ -1,13 +1,21 @@
-import { User } from '@brutalbarber/core';
+import { professionals, services, User } from '@brutalbarber/core';
 import { PrismaClient } from '@prisma/client';
 import * as bcrypt from 'bcrypt';
 
 const prisma = new PrismaClient();
 
 async function seed() {
+  console.log('Criando novos profissionais...');
+  await prisma.professional.createMany({ data: professionals as any });
+  console.log('Profissionais criados com sucesso...');
+
+  console.log('Criando novos servicos...');
+  await prisma.service.createMany({ data: services as any });
+  console.log('Servicos criados com sucesso...');
+
   console.log('Criando novos usuários...');
-  const senhaPadrao = 'senha123';
-  const password = await bcrypt.hash(senhaPadrao, 10);
+  const defaultPassword = 'senha123';
+  const password = await bcrypt.hash(defaultPassword, 10);
 
   const users: User[] = [
     {
@@ -54,17 +62,18 @@ async function seed() {
     },
   ];
 
-  await prisma.user.deleteMany();
   await prisma.user.createMany({ data: users as any });
-
-  console.log('Usuários criados com sucesso!');
 }
 
-seed()
-  .catch((e) => {
+async function main() {
+  try {
+    await seed();
+  } catch (e) {
     console.error(e);
     process.exit(1);
-  })
-  .finally(() => {
-    prisma.$disconnect();
-  });
+  } finally {
+    await prisma.$disconnect();
+  }
+}
+
+void main();

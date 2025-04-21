@@ -11,34 +11,51 @@ datasource db {
 }
 
 model User {
-  id       Int     @id @default(autoincrement())
-  name     String
-  email    String  @unique
-  password String
-  phone    String
-  barber   Boolean
+  id         Int          @id @default(autoincrement())
+  name       String
+  email      String       @unique
+  password   String
+  phone      String
+  barber     Boolean
+  scheduling Scheduling[]
 
   @@map("user")
 }
 
 model Professional {
-  id          Int    @id @default(autoincrement())
-  name        String @unique
+  id          Int          @id @default(autoincrement())
+  name        String       @unique
   description String
   imageURL    String
   stars       Float
   qtyReviews  Int
+  scheduling  Scheduling[]
 
   @@map("professional")
 }
 
 model Service {
-  id          Int    @id @default(autoincrement())
-  name        String @unique
+  id          Int          @id @default(autoincrement())
+  name        String       @unique
   description String
   price       Float
   qtySlots    Float
   imageURL    String
+  scheduling  Scheduling[]
 
   @@map("service")
+}
+
+model Scheduling {
+  id     Int      @id @default(autoincrement())
+  date   DateTime
+  user   User     @relation(fields: [userId], references: [id])
+  userId Int
+
+  professional   Professional @relation(fields: [professionalId], references: [id])
+  professionalId Int
+
+  services Service[]
+
+  @@map("scheduling")
 }
