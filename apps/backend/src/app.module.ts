@@ -7,7 +7,13 @@ import { ProfessionalModule } from './professional/professional.module';
 import { ServiceModule } from './service/service.module';
 
 @Module({
-  imports: [AuthModule, DbModule, SchedulingModule, ProfessionalModule, ServiceModule],
+  imports: [
+    AuthModule,
+    DbModule,
+    SchedulingModule,
+    ProfessionalModule,
+    ServiceModule,
+  ],
   controllers: [AppController],
   providers: [],
 })

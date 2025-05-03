@@ -1,8 +1,9 @@
-import { professionals } from '@brutalbarber/core';
 import { ProfessionalCard } from './ProfessionalCard';
 import { TitleSection } from '@/components/shared/TitleSection';
+import { useProfessionals } from '@/data/hooks/useProfessionals';
 
 export function OurProfessional() {
+    const { professionals } = useProfessionals();
     return (
         <div className="flex flex-col gap-y-16">
             <TitleSection

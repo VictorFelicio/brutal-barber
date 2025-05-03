@@ -1,8 +1,8 @@
-import { services } from '@brutalbarber/core';
+import { useServices } from '@/data/hooks/useServices';
 import { ServiceCard } from './ServiceCard';
 import { TitleSection } from '@/components/shared/TitleSection';
-
 export function OurServices() {
+    const { services } = useServices();
     return (
         <div className="flex flex-col gap-y-16">
             <TitleSection
