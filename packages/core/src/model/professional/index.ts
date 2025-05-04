@@ -1,4 +1,4 @@
-import Professional from './model/Professional';
+import Professional from './entity/Professional';
 import ProfessionalRepository from './provider/ProfessionalRepository';
 import GetProfessionals from './services/GetProfessionals';
 

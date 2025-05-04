@@ -1,5 +1,5 @@
 import UseCase from '../../../shared/UseCase';
-import User from '../model/User';
+import User from '../entity/User';
 import ProviderCrypto from '../provider/ProviderCrypto';
 import UserRepository from '../provider/UserRepository';
 
@@ -18,7 +18,10 @@ export default class LoginUser implements UseCase<DataUser, User> {
 
         if (!user) throw new Error('Usuário não encontrado');
 
-        const isValidPassword = await this.crypt.compare(data.password, user.password);
+        const isValidPassword = await this.crypt.compare(
+            data.password,
+            user.password
+        );
 
         if (!isValidPassword) throw new Error('Senha inválida');
 

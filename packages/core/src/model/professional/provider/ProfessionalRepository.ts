@@ -1,4 +1,4 @@
-import Professional from '../model/Professional';
+import Professional from '../entity/Professional';
 
 export default interface ProfessionalRepository {
     getAll(): Promise<Professional[]>;

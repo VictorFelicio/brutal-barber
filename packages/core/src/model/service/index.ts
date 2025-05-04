@@ -1,4 +1,4 @@
-import Service from './model/Service';
+import Service from './entity/Service';
 import ServiceRepository from './provider/ServiceRepository';
 import GetServices from './services/GetServices';
 

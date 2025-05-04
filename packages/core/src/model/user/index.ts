@@ -1,4 +1,4 @@
-import User from './model/User';
+import User from './entity/User';
 import RegisterUser from './services/RegisterUser';
 import LoginUser from './services/LoginUser';
 import UserRepository from './provider/UserRepository';

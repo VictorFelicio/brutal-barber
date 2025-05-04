@@ -1,5 +1,5 @@
 import UseCase from '../../../shared/UseCase';
-import Service from '../model/Service';
+import Service from '../entity/Service';
 import ServiceRepository from '../provider/ServiceRepository';
 
 export default class GetServices implements UseCase<void, Service[]> {

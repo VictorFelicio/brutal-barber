@@ -1,5 +1,5 @@
 import UseCase from '../../../shared/UseCase';
-import User from '../model/User';
+import User from '../entity/User';
 import ProviderCrypto from '../provider/ProviderCrypto';
 import UserRepository from '../provider/UserRepository';
 
