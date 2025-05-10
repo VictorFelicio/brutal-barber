@@ -2,10 +2,10 @@
 
 import { useSession } from '@/data/hooks/useSession';
 import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
+import { ReactNode, useEffect } from 'react';
 import Processing from './Processing';
 
-export default function ForceAuth(props: any) {
+export default function ForceAuth(props: { children: ReactNode }) {
     const { user, isLoading } = useSession();
     const router = useRouter();
 

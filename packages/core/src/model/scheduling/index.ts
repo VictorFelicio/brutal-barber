@@ -1,2 +1,3 @@
 import IScheduling from './entity/Scheduling';
-export type { IScheduling };
+import ISchedulingRepository from './provider/SchedulingRepository';
+export type { IScheduling, ISchedulingRepository };

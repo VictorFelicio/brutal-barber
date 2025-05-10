@@ -3,7 +3,7 @@ import { Service } from '../../service';
 import { User } from '../../user';
 
 export default interface IScheduling {
-    id: string;
+    id: number;
     date: Date;
     user: User;
     professional: Professional;
