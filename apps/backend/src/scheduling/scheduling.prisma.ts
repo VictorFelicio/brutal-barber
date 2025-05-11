@@ -59,9 +59,11 @@ export default class SchedulingPrisma implements ISchedulingRepository {
         date: { gte: startDate, lte: endDate },
       },
       include: {
-        user: true,
-        professional: true,
-        services: true,
+        user: { select: { id: true, name: true, email: true } },
+        professional: { select: { id: true, name: true } },
+        services: {
+          select: { id: true, name: true, price: true, qtySlots: true },
+        },
       },
     });
   }
@@ -72,9 +74,11 @@ export default class SchedulingPrisma implements ISchedulingRepository {
         id,
       },
       include: {
-        user: true,
-        professional: true,
-        services: true,
+        user: { select: { id: true, name: true, email: true } },
+        professional: { select: { id: true, name: true } },
+        services: {
+          select: { id: true, name: true, price: true, qtySlots: true },
+        },
       },
     });
   }
