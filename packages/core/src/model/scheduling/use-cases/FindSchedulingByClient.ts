@@ -7,8 +7,7 @@ export default class FindSchedulingByClient implements UseCase<User, IScheduling
     constructor(private readonly repository: ISchedulingRepository) {}
 
     async execute(user: User): Promise<IScheduling[]> {
-        const { email } = user;
-        const scheduling = this.repository.findByEmailUser(email);
+        const scheduling = await this.repository.findByEmailUser(user.email);
 
         if (!scheduling) throw new Error('Agendamentos não encontrados');
 

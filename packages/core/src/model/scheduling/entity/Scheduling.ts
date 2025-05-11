@@ -6,6 +6,6 @@ export default interface IScheduling {
     id: number;
     date: Date;
     user: User;
-    professional: Professional;
-    services: Service[];
+    professional: Partial<Professional>;
+    services: Partial<Service>[];
 }

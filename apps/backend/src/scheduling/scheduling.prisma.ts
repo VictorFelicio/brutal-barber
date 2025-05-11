@@ -21,18 +21,25 @@ export default class SchedulingPrisma implements ISchedulingRepository {
   }
 
   async findByEmailUser(email: string): Promise<IScheduling[]> {
-    return await this.prisma.scheduling.findMany({
+    const scheduling = await this.prisma.scheduling.findMany({
       where: {
         user: { email },
         date: { gte: new Date() },
       },
       include: {
-        user: true,
-        professional: true,
-        services: true,
+        user: { select: { id: true, name: true, email: true } },
+        professional: { select: { id: true, name: true } },
+        services: {
+          select: { id: true, name: true, price: true, qtySlots: true },
+        },
       },
       orderBy: { date: 'desc' },
     });
+
+    return scheduling.map(
+      ({ userId: _userId, professionalId: _professionalId, ...schedule }) =>
+        schedule,
+    );
   }
 
   async findByProfessionalAndDate(
