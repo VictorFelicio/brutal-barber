@@ -22,8 +22,7 @@ export class SchedulingController {
   }
 
   @Get()
-  async getScheduling(@UserLogged() user: User) {
-    console.log(user);
+  async findSchedulingByClient(@UserLogged() user: User) {
     const findSchedulingByClientUseCase = new FindSchedulingByClient(
       this.repository,
     );
