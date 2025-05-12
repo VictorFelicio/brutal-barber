@@ -1,11 +1,12 @@
 import {
+  DeleteScheduling,
   FindSchedulingByClient,
   FindSchedulingProfessionalByDate,
   IScheduling,
   NewScheduling,
   User,
 } from '@brutalbarber/core';
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
 import { UserLogged } from 'src/shared/user.decorator';
 import SchedulingPrisma from './scheduling.prisma';
 
@@ -41,5 +42,11 @@ export class SchedulingController {
       professional: Number(professional),
       date: new Date(date),
     });
+  }
+
+  @Delete(':id')
+  async deleteScheduling(@Param('id') id: string, @UserLogged() user: User) {
+    const deleteSchedulingUseCase = new DeleteScheduling(this.repository);
+    await deleteSchedulingUseCase.execute({ id: +id, user });
   }
 }
