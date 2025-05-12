@@ -1,10 +1,11 @@
 import {
   FindSchedulingByClient,
+  FindSchedulingProfessionalByDate,
   IScheduling,
   NewScheduling,
   User,
 } from '@brutalbarber/core';
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { UserLogged } from 'src/shared/user.decorator';
 import SchedulingPrisma from './scheduling.prisma';
 
@@ -27,5 +28,18 @@ export class SchedulingController {
       this.repository,
     );
     return await findSchedulingByClientUseCase.execute(user);
+  }
+
+  @Get('/professional/:professional/:date')
+  async findSchedulingByProfessionalAndDate(
+    @Param('professional') professional: string,
+    @Param('date') date: string,
+  ) {
+    const findSchedulingByProfessionalAndDateUseCase =
+      new FindSchedulingProfessionalByDate(this.repository);
+    return await findSchedulingByProfessionalAndDateUseCase.execute({
+      professional: Number(professional),
+      date: new Date(date),
+    });
   }
 }
