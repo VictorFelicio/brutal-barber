@@ -75,5 +75,6 @@ body {
 
     .input {
         @apply bg-zinc-800 px-4 py-2 rounded;
+        color-scheme: dark;
     }
 }
