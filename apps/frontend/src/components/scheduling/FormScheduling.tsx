@@ -3,15 +3,26 @@ import SelectInputProfessional from '../Professional/components/SelectInputProfe
 import { useState } from 'react';
 import CheckboxInputServices from '../Service/components/CheckboxServices';
 import InputDate from '../shared/Form/InputDate';
+import useAPI from '@/data/hooks/useAPI';
+import { useSession } from '@/data/hooks/useSession';
 
 export default function FormScheduling() {
     const [professional, setProfessional] = useState<Professional | null>(null);
     const [services, setServices] = useState<Service[]>([]);
     const [date, setDate] = useState<Date>(new Date());
 
-    function handleSercices(services: Service[]) {
-        setServices(services);
-        console.log(services.map((s) => s.name));
+    const { apiHttpPost } = useAPI();
+    const { user } = useSession();
+
+    async function handleScheduling() {
+        console.log({ professional, services, date, user });
+
+        await apiHttpPost('/scheduling', {
+            date,
+            user,
+            professional,
+            services,
+        });
     }
     return (
         <div className="flex flex-col gap-5">
@@ -25,7 +36,7 @@ export default function FormScheduling() {
                 className="input"
                 label="Serviços"
                 value={services}
-                onChange={handleSercices}
+                onChange={setServices}
             />
 
             <InputDate
@@ -33,8 +44,16 @@ export default function FormScheduling() {
                 label="Data"
                 value={date}
                 onChange={setDate}
-                onlyFutureDates
+                onlyFutureDates={true}
             />
+            <div>
+                <button
+                    onClick={handleScheduling}
+                    className="button bg-blue-500"
+                >
+                    Agendar
+                </button>
+            </div>
         </div>
     );
 }
