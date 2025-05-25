@@ -1,12 +1,15 @@
 'use client';
 
 import FormScheduling from '@/components/scheduling/FormScheduling';
-import { Navbar } from '@/components/shared/Navbar';
+import { HeaderTitle } from '@/components/shared/HeaderTitle';
 
 export default function Scheduling() {
     return (
         <div className="flex flex-col gap-5">
-            <Navbar />
+            <HeaderTitle
+                title="Agendamento de serviços"
+                description="Seja atendido exatamente no horário marcado!"
+            />
             <div className="container py-10">
                 <span className="text-5xl">Scheduling</span>
                 <FormScheduling />
