@@ -11,7 +11,6 @@ export default function Scheduling() {
                 description="Seja atendido exatamente no horário marcado!"
             />
             <div className="container py-10">
-                <span className="text-5xl">Scheduling</span>
                 <FormScheduling />
             </div>
         </div>
